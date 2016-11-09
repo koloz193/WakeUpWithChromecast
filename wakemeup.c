@@ -14,7 +14,7 @@ int t(int hour, int min);
 
 /*
   Returns an integer representing the amount of time (in seconds) until
-  hour:min.
+  hour:min. Input must be in military time: hour (0-23).
 */
 int t(int hour, int min)
 {
