@@ -64,6 +64,7 @@ int main(void)
   else
     if (child_pid == 0)
     {
+      /* Insert directory where 'alarm' files are located for /Users/zach/Documents/Music. */
       execle("/usr/local/bin/castnow", "castnow", "/Users/zach/Documents/Music",
       "&", NULL, environ);
     }
