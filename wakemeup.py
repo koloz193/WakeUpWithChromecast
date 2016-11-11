@@ -3,7 +3,7 @@ import os
 if (os.path.isfile("/usr/local/bin/castnow") != 1):
     os.system("sudo npm install castnow -g")
 
-os.system("gcc w.c -o d")
+os.system("gcc wakemeup.c -o driver")
 
 location = raw_input("Where is the music? ")
 print("What time would you like to wake up?")
