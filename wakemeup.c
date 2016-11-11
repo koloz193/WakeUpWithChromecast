@@ -15,6 +15,8 @@ int t(int hour, int min);
 /*
   Returns an integer representing the amount of time (in seconds) until
   hour:min. Input must be in military time: hour (0-23).
+
+  Issue: When alarm is set to 7:00 am the music is casted again at 8:00 am.
 */
 int t(int hour, int min)
 {
@@ -63,9 +65,7 @@ int main(int argc, char *argv[])
   }
   else
     if (child_pid == 0)
-    {
       execle("/usr/local/bin/castnow", "castnow", argv[1], "&", NULL, environ);
-    }
     else
       err(EX_OSERR, "fork error");
 
