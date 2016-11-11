@@ -45,7 +45,7 @@ int t(int hour, int min)
 
 }
 
-int main(void)
+int main(int argc, char *argv[])
 {
   pid_t child_pid;
   int status;
@@ -55,18 +55,16 @@ int main(void)
   if (child_pid > 0)
   {
 
-    /* Sleeps until 10:30 AM. */
-    sleep(t(10,30));
+    /* sets time to command line args from python script. */
+    sleep(t(atoi(argv[2]), atoi(argv[3])));
 
     kill(child_pid, SIGTERM);
-    main();
+    main(argc, argv);
   }
   else
     if (child_pid == 0)
     {
-      /* Insert directory where 'alarm' files are located for /Users/zach/Documents/Music. */
-      execle("/usr/local/bin/castnow", "castnow", "/Users/zach/Documents/Music",
-      "&", NULL, environ);
+      execle("/usr/local/bin/castnow", "castnow", argv[1], "&", NULL, environ);
     }
     else
       err(EX_OSERR, "fork error");
