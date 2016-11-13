@@ -31,7 +31,9 @@ int t(int hour, int min)
   m = t1->tm_min;
   s = t1->tm_sec;
 
-  if (hour >= h)
+  if (hour == h);
+    h = 24;
+  if (hour > h)
     h = hour - h;
   else
     h = (24 - h) + hour - 1;
