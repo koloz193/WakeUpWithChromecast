@@ -60,7 +60,13 @@ int main(int argc, char *argv[])
   {
 
     /* sets time to command line args from python script. */
-    sleep(t(atoi(argv[2]), atoi(argv[3])));
+    /* sleep(t(atoi(argv[2]), atoi(argv[3]))); */
+
+    /*
+      make while loop that sleeps for a minute and
+      the condition checks the current times hour
+      and minute.
+    */
 
     kill(child_pid, SIGTERM);
     main(argc, argv);
