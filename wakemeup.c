@@ -54,6 +54,9 @@ int main(int argc, char *argv[])
   pid_t child_pid;
   int status;
 
+  time_t tt;
+  struct tm *t1;
+
   child_pid= fork();
 
   if (child_pid > 0)
@@ -67,6 +70,16 @@ int main(int argc, char *argv[])
       the condition checks the current times hour
       and minute.
     */
+
+    tt = time(0);
+    t1 = (localtime) (&tt);
+
+    while ((t1->tm_hour != atoi(argv[2])) && (t1->tm_min != atoi(argv[3])))
+    {
+      sleep(60);
+      tt = time(0);
+      t1 = (localtime) (&tt);
+    }
 
     kill(child_pid, SIGTERM);
     main(argc, argv);
