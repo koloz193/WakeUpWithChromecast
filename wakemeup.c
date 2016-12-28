@@ -74,6 +74,8 @@ int main(int argc, char *argv[])
     tt = time(0);
     t1 = (localtime) (&tt);
 
+    sleep(60);
+
     while ((t1->tm_hour != atoi(argv[2])) || (t1->tm_min != atoi(argv[3])))
     {
       sleep(60);
@@ -85,8 +87,12 @@ int main(int argc, char *argv[])
     main(argc, argv);
   }
   else
+
+    tt = time(0);
+    t1 = (localtime) (&tt);
+
     if (child_pid == 0)
-      printf("I am the child\n");
+      printf("Casting now @ %d : %02d : %02d\n", t1->tm_hour, t1->tm_min, t1->tm_sec);
       //execle("/usr/local/bin/castnow", "castnow", argv[1], "&", NULL, environ);
     else
       err(EX_OSERR, "fork error");
