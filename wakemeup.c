@@ -15,7 +15,6 @@ extern char **environ;
 int main(int argc, char *argv[])
 {
   pid_t child_pid;
-  int status;
 
   time_t tt;
   struct tm *t1;
