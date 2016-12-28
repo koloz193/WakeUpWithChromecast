@@ -13,4 +13,10 @@ minutes = raw_input("Min (0-59): ")
 hour = int(hour)
 minutes = int(minutes)
 
+# Trying to offset minute delay in C program
+if minutes == 0:
+  minutes = 59
+else:
+  minutes -= 1
+
 os.system("./d %s %d %d" % (location, hour, minutes))
