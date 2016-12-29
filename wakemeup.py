@@ -16,6 +16,12 @@ minutes = int(minutes)
 # Trying to offset minute delay in C program
 if minutes == 0:
   minutes = 59
+  
+  if hour == 0:
+    hour = 23
+  else:
+    hour -= 1
+
 else:
   minutes -= 1
 
